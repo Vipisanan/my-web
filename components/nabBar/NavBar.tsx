@@ -1,20 +1,40 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setTheme(isDark ? "dark" : "light");
+    };
+
+    checkTheme(); // Check on mount
+
+    // Observe class changes on <html>
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect(); // Cleanup on unmount
+  }, []);
 
   return (
     <nav
-      className="navbar mx-auto w-full
-     px-4
-     py-5 bg-base-100 items-center 
-     justify-items-center
-      shadow-lg 
-      shadow-gray-400 
-      dark:shadow-gray-600"
+      className={`navbar mx-auto w-full max-w-[1800px] 
+        px-4 py-5 
+        items-center 
+        shadow-lg shadow-gray-400 
+        dark:shadow-gray-600 
+        fixed left-0 right-0 top-0 ${
+          theme == "light" ? "bg-white" : "bg-black"
+        }`}
     >
       <div className="w-full flex items-center justify-between">
         {/* Left side of the navbar - Vipisanan (Center vertically) */}

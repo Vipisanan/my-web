@@ -4,7 +4,12 @@ import Image from "next/image";
 export default function ProfilePage() {
   return (
     <>
-      <section className="min-h-screen bg-gray-900 text-white flex items-center justify-center px-6 md:px-16 pt-[72px]">
+      <section
+        className="min-h-screen flex items-center justify-center
+       px-6 md:px-16 
+       pt-[72px] sm:pt-0
+       "
+      >
         <div className="max-w-6xl w-full">
           {/* Profile Heading */}
           <h2 className="text-4xl font-bold">Profile</h2>
@@ -14,7 +19,7 @@ export default function ProfilePage() {
             {/* Left Content */}
             <div>
               <h3 className="text-2xl font-bold mb-4">About Me</h3>
-              <p className="text-gray-300">
+              <p className="">
                 I am an efficient and confident sales executive with
                 demonstrated experience in the logistics and supply chain
                 industry. My experience helped me develop expert knowledge of
@@ -31,9 +36,7 @@ export default function ProfilePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Languages */}
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-300">
-                    Languages
-                  </h4>
+                  <h4 className="text-lg font-semibold">Languages</h4>
                   <div className="bg-gray-700 text-white px-4 py-2 rounded-md mt-2">
                     JAVASCRIPT, TYPESCRIPT AND JAVA
                   </div>
@@ -41,9 +44,7 @@ export default function ProfilePage() {
 
                 {/* Career Goal */}
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-300">
-                    Career Goal
-                  </h4>
+                  <h4 className="text-lg font-semibold ">Career Goal</h4>
                   <div className="bg-gray-700 text-white px-4 py-2 rounded-md mt-2">
                     SOFTWARE ARCHITECT
                   </div>
@@ -51,7 +52,7 @@ export default function ProfilePage() {
 
                 {/* IDEs */}
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-300">IDEs</h4>
+                  <h4 className="text-lg font-semibold ">IDEs</h4>
                   <div className="bg-gray-700 text-white px-4 py-2 rounded-md mt-2">
                     XX, XXX, SSS, RRR
                   </div>
@@ -59,9 +60,7 @@ export default function ProfilePage() {
 
                 {/* Career Goal Again */}
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-300">
-                    Career Goal
-                  </h4>
+                  <h4 className="text-lg font-semibold">Career Goal</h4>
                   <div className="bg-gray-700 text-white px-4 py-2 rounded-md mt-2">
                     SOFTWARE ARCHITECT
                   </div>

@@ -22,7 +22,10 @@ export default function RootComponent({ children }: RootComponentProps) {
 
       {/* Main Content */}
       <main
-        className="flex-1 flex w-full max-w-[1800px] 
+        className="
+        flex-1 
+        flex w-full 
+        max-w-[1800px] 
       mx-auto 
       px-0 z-10"
       >

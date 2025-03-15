@@ -2,28 +2,12 @@
 import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
 
-  useEffect(() => {
-    const checkTheme = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setTheme(isDark ? "dark" : "light");
-    };
-
-    checkTheme(); // Check on mount
-
-    // Observe class changes on <html>
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect(); // Cleanup on unmount
-  }, []);
+  const theme = useTheme();
 
   return (
     <nav
@@ -31,7 +15,7 @@ export default function NavBar() {
         px-4 py-5 
         items-center 
         shadow-lg shadow-gray-400 
-        dark:shadow-gray-600 
+        dark:shadow-gray-600
         fixed left-0 right-0 top-0 ${
           theme == "light" ? "bg-white" : "bg-black"
         }`}

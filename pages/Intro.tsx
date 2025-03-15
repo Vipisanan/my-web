@@ -5,7 +5,7 @@ import LandingPage from "./LandingPage";
 export default function Intro() {
   return (
     <>
-      <div className="w-full m:px-6 md:px-12">
+      <div className="w-full">
         <div className="p-0 grid grid-cols-1 lg:grid-cols-2 gap-6 h-screen">
           {/* Left Column with Image */}
           <div className="flex justify-center items-center h-full">

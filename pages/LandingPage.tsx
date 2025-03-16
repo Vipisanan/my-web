@@ -5,6 +5,7 @@ import Image from "next/image";
 import Intro from "./Intro";
 import { useState, useEffect } from "react";
 import ProfilePage from "./ProfilePage";
+import EducationPage from "./EducationPage";
 
 // items-center justify-center
 
@@ -24,7 +25,7 @@ export default function LandingPage() {
   return (
     <RootComponent>
       <div className="flex w-full flex-col">
-        <div className="w-full mt-6">
+        <div className="w-full mt-2">
           {isVisible && (
             <div
               className={`p-0 rounded transition-all duration-2000 ${
@@ -35,6 +36,7 @@ export default function LandingPage() {
             </div>
           )}
           <ProfilePage />
+          <EducationPage />
         </div>
       </div>
     </RootComponent>

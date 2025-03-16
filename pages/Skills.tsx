@@ -1,20 +1,33 @@
+import SkillsSection from "@/components/common/SkillSection";
 import React from "react";
 
 const skills = [
   {
-    category: "MARKETING",
+    category: "Backend Development",
     skills: [
-      { name: "Account management", level: 80 },
-      { name: "Strategic and Social selling", level: 75 },
+      { name: "Java", level: 90 },
+      { name: "Spring Boot", level: 85 },
+      { name: "Microservices", level: 80 },
+      { name: "Event-driven Microservices", level: 75 },
     ],
   },
   {
-    category: "DATA ANALYSIS",
+    category: "Frontend Development",
     skills: [
-      {
-        name: "Proficient in Customer Relationship Management software",
-        level: 85,
-      },
+      { name: "ReactJS", level: 85 },
+      { name: "Redux", level: 80 },
+      { name: "TypeScript", level: 80 },
+      { name: "JavaScript", level: 85 },
+    ],
+  },
+  {
+    category: "Tools & Technologies",
+    skills: [
+      { name: "Linux", level: 85 },
+      { name: "Jira", level: 80 },
+      { name: "Git", level: 90 },
+      { name: "Swagger", level: 75 },
+      { name: "Postman", level: 80 },
     ],
   },
 ];
@@ -27,9 +40,7 @@ const Skills = () => {
         <p className="text-sm uppercase font-semibold text-gray-600 dark:text-gray-400">
           What I Can Do
         </p>
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-          Skills & Proficiencies
-        </h2>
+        <h2 className="text-3xl font-bold ">Skills & Proficiencies</h2>
         <div className="border-b-2 border-purple-500 w-20 mt-2"></div>
       </div>
 

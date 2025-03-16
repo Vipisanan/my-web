@@ -21,12 +21,17 @@ export default function ProfilePage() {
             <div>
               <h3 className="text-2xl font-bold mb-4">About Me</h3>
               <p className="">
-                Hi, I'm Vipisanan, a passionate Full Stack Developer with
-                expertise in ReactJS and Spring Boot. With over 4.5 years of
-                experience, I specialize in building scalable web applications.
-                I’m also exploring Web3, AWS, and crypto trading while
-                continuously improving my skills in software development and
-                entrepreneurship.
+                Hi, I'm Vipisanan, A dedicated Full Stack Developer with over
+                4.5 years of experience in building and maintaining robust
+                software applications. Proficient in Java, Spring Boot, ReactJS,
+                and Microservices, with a strong focus on scalability,
+                performance, and user-centric design. Adept at collaborating in
+                cross-functional teams, utilizing Agile methodologies, and
+                ensuring timely delivery of high-quality software. Passionate
+                about continuous learning and staying updated with emerging
+                technologies to drive innovation and efficiency in software
+                development. Proven ability to solve complex problems and
+                deliver effective solutions in dynamic environments.
               </p>
 
               {/* Developer Details */}
@@ -40,15 +45,15 @@ export default function ProfilePage() {
                 <div>
                   <h4 className="text-lg font-semibold">Languages</h4>
                   <div className="bg-gray-700 text-white px-4 py-2 rounded-md mt-2">
-                    JAVASCRIPT, TYPESCRIPT AND JAVA
+                    Java, JavaScript, TypeScript
                   </div>
                 </div>
 
-                {/* Career Goal */}
+                {/* Framwork Goal */}
                 <div>
-                  <h4 className="text-lg font-semibold ">Career Goal</h4>
+                  <h4 className="text-lg font-semibold ">Framework</h4>
                   <div className="bg-gray-700 text-white px-4 py-2 rounded-md mt-2">
-                    SOFTWARE ARCHITECT
+                    Spring Boot, ReactJs
                   </div>
                 </div>
 
@@ -56,15 +61,15 @@ export default function ProfilePage() {
                 <div>
                   <h4 className="text-lg font-semibold ">IDEs</h4>
                   <div className="bg-gray-700 text-white px-4 py-2 rounded-md mt-2">
-                    XX, XXX, SSS, RRR
+                    intellij idea, webstorm, VS code
                   </div>
                 </div>
 
                 {/* Career Goal Again */}
                 <div>
                   <h4 className="text-lg font-semibold">Career Goal</h4>
-                  <div className="bg-gray-700 text-whhttp://localhost:3000/assert/me1.jpgite px-4 py-2 rounded-md mt-2">
-                    SOFTWARE ARCHITECT
+                  <div className="bg-gray-700 text-white px-4 py-2 rounded-md mt-2">
+                    Software Architect
                   </div>
                 </div>
               </div>

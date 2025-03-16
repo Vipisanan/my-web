@@ -6,6 +6,7 @@ import Intro from "./Intro";
 import { useState, useEffect } from "react";
 import ProfilePage from "./ProfilePage";
 import EducationPage from "./EducationPage";
+import Skills from "./Skills";
 
 // items-center justify-center
 
@@ -37,6 +38,7 @@ export default function LandingPage() {
           )}
           <ProfilePage />
           <EducationPage />
+          <Skills />
         </div>
       </div>
     </RootComponent>

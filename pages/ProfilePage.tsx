@@ -20,11 +20,12 @@ export default function ProfilePage() {
             <div>
               <h3 className="text-2xl font-bold mb-4">About Me</h3>
               <p className="">
-                I am an efficient and confident sales executive with
-                demonstrated experience in the logistics and supply chain
-                industry. My experience helped me develop expert knowledge of
-                the sales process and supply chain. I am highly motivated to
-                continue learning and improving my craft.
+                Hi, I'm Vipisanan, a passionate Full Stack Developer with
+                expertise in ReactJS and Spring Boot. With over 4.5 years of
+                experience, I specialize in building scalable web applications.
+                I’m also exploring Web3, AWS, and crypto trading while
+                continuously improving my skills in software development and
+                entrepreneurship.
               </p>
 
               {/* Developer Details */}

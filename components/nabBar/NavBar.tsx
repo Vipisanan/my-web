@@ -35,18 +35,18 @@ export default function NavBar() {
         <div className="hidden md:flex md:items-center md:gap-2 justify-center flex-grow">
           <ul className="flex gap-4">
             <li>
-              <a href="#home" className="text-lg">
-                Home
+              <a href="#profile" className="text-lg">
+                Profile
               </a>
             </li>
             <li>
-              <a href="#about" className="text-lg">
-                About
+              <a href="#Education" className="text-lg">
+                Education
               </a>
             </li>
             <li>
-              <a href="#services" className="text-lg">
-                Services
+              <a href="#skills" className="text-lg">
+                Skills
               </a>
             </li>
           </ul>

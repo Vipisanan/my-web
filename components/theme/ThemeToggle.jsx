@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/solid"; // Import icons
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState("light");
@@ -32,7 +32,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button className="px-2" onClick={toggleTheme}>
+    <button className="px-5" onClick={toggleTheme}>
       {theme === "light" ? (
         <SunIcon className="h-6 w-6 text-yellow-500" />
       ) : (

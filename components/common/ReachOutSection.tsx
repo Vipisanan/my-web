@@ -5,13 +5,6 @@ import { HiMail } from "react-icons/hi";
 const ReachOutSection = () => {
   return (
     <section className="py-20 px-6  from-purple-900 to-indigo-900 relative overflow-hidden">
-      {/* Animated background shapes */}
-      <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute w-64 h-64 bg-purple-700 rounded-full opacity-20 -top-32 -left-32 animate-float"></div>
-        <div className="absolute w-48 h-48 bg-indigo-700 rounded-full opacity-20 top-1/2 left-1/4 animate-float-delay"></div>
-        <div className="absolute w-56 h-56 bg-purple-600 rounded-full opacity-20 bottom-0 right-0 animate-float"></div>
-      </div>
-
       <div className="max-w-6xl mx-auto text-center relative z-10">
         {/* Title Section */}
         <div className="mb-16">

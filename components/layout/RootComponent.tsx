@@ -1,7 +1,5 @@
 import React, { ReactNode } from "react";
 import NavBar from "@/components/nabBar/NavBar";
-import LandingPage from "@/pages/LandingPage";
-import Image from "next/image";
 import Footer from "../footer/Footer";
 
 interface RootComponentProps {

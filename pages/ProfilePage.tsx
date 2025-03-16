@@ -1,6 +1,4 @@
-import App from "@/pages/Index";
-import Image from "next/image";
-import profileImg from "./lap1.png";
+import React from "react";
 
 export default function ProfilePage() {
   return (

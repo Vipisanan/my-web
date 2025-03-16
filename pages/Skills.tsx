@@ -1,4 +1,3 @@
-import SkillsSection from "@/components/common/SkillSection";
 import React from "react";
 
 const skills = [

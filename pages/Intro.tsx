@@ -1,6 +1,4 @@
-import NavBar from "@/components/nabBar/NavBar";
-import Image from "next/image";
-import LandingPage from "./LandingPage";
+import React from "react";
 
 export default function Intro() {
   return (

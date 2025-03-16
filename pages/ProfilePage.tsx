@@ -1,5 +1,6 @@
 import App from "@/pages/Index";
 import Image from "next/image";
+import profileImg from "./lap1.png";
 
 export default function ProfilePage() {
   return (
@@ -62,7 +63,7 @@ export default function ProfilePage() {
                 {/* Career Goal Again */}
                 <div>
                   <h4 className="text-lg font-semibold">Career Goal</h4>
-                  <div className="bg-gray-700 text-white px-4 py-2 rounded-md mt-2">
+                  <div className="bg-gray-700 text-whhttp://localhost:3000/assert/me1.jpgite px-4 py-2 rounded-md mt-2">
                     SOFTWARE ARCHITECT
                   </div>
                 </div>
@@ -72,7 +73,7 @@ export default function ProfilePage() {
             {/* Right Image */}
             <div className="flex justify-center items-center h-full">
               <img
-                src="https://media.rnztools.nz/rnz/image/upload/s--7Th-33f3--/ar_16:10,c_fill,f_auto,g_auto,q_auto,w_1050/v1707879820/4KUTP9W_RNZD2782_jpg?_a=BACCd2AD"
+                src="assert/me1.jpg"
                 alt="Profile"
                 className="w-64 h-64 md:w-[50%] md:h-[80%] rounded-full object-cover border-4 border-gray-500"
               />

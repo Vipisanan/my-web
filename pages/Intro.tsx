@@ -8,7 +8,7 @@ export default function Intro() {
           {/* Left Column with Image */}
           <div className="flex justify-center items-center h-full">
             <img
-              src="https://wallpapers.com/images/featured/office-desk-a1yivbaxal92jim2.jpg"
+              src="assert/main1.png"
               alt="Picture of the author"
               className="h-full object-cover"
             />

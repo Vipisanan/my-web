@@ -1,81 +1,170 @@
-import React from "react";
-import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
-import { HiMail } from "react-icons/hi";
+"use client";
 
-const ReachOutSection = () => {
+import { useState } from "react";
+import {
+  FaInstagram,
+  FaTwitter,
+  FaFacebook,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa";
+import { FaF } from "react-icons/fa6";
+
+export default function ReachOutSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    subject: "",
+    message: "",
+  });
+  const [responseMessage, setResponseMessage] = useState("");
+
+  const handleChange = (e: any) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("/api/contact", {
+        // Corrected route
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setResponseMessage("Message sent successfully!");
+        setFormData({ name: "", subject: "", message: "" });
+      } else {
+        setResponseMessage("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setResponseMessage("An error occurred. Please try again later.");
+    }
+  };
+
   return (
-    <section className="py-20 px-6  from-purple-900 to-indigo-900 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto text-center relative z-10">
-        {/* Title Section */}
-        <div className="mb-16">
-          <h2 className="text-6xl font-bold text-white mb-4">Reach Out</h2>
-          <div className="border-b-4 border-yellow-400 w-24 mt-2 mx-auto"></div>
-        </div>
-
-        {/* Contact Info Section */}
-        <div className="mb-16">
-          <div className="bg-white/10 backdrop-blur-lg rounded-lg p-8 inline-block transform transition-all hover:scale-105 hover:shadow-2xl">
-            <p className="text-3xl font-semibold text-yellow-400 mb-4">
-              Ashwini Ingle
-            </p>
-            <div className="flex justify-center items-center space-x-2">
-              <HiMail className="text-yellow-400 text-3xl" />
-              <a
-                href="mailto:hello@reallygreatsite.com"
-                className="text-yellow-400 hover:text-yellow-300 text-2xl transition duration-300"
-              >
-                hello@reallygreatsite.com
-              </a>
-            </div>
+    <section className="py-16 px-6">
+      <div className="max-w-6xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8">
+        {/* Left - Image */}
+        <div className="w-full md:w-1/2">
+          <div className="mb-10">
+            <p className="text-sm uppercase font-semibold text-gray-600 dark:text-gray-400"></p>
+            <h2 className="text-3xl font-bold ">Reach Out</h2>
+            <div className="border-b-2 border-purple-500 w-20 mt-2"></div>
           </div>
+          <img
+            src="assert/rOut1.png"
+            alt="Person typing on a laptop"
+            className="rounded-lg shadow-lg w-full"
+          />
         </div>
 
-        {/* Social Media Section */}
-        <div className="mb-16">
-          <p className="text-3xl font-semibold text-yellow-400 mb-8">
-            CONNECT WITH ME
+        {/* Right - Contact Details & Form */}
+        <div className="w-full md:w-1/2">
+          <p className="mt-2 text-lg font-semibold">E.Vipisanan</p>
+          <p className="mt-2 text-lg font-semibold">
+            <a href="tel:+94779398779" className="text-lg font-semibold">
+              +94 77 93 98 779
+            </a>
           </p>
-          <div className="flex justify-center space-x-12">
+          <p className="text-gray-400">
+            <a href="mailto:vipisanan1@gmail.com" className="text-gray-400">
+              vipisanan1@gmail.com
+            </a>
+          </p>
+
+          {/* Social Icons */}
+          <div className="flex gap-4 mt-4">
             <a
-              href="https://www.linkedin.com/in/yourprofile"
+              href="https://www.github.com/vipisanan"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-yellow-400 hover:text-yellow-300 text-2xl transition duration-300 transform hover:scale-110"
             >
-              <FaLinkedin className="mr-2 text-4xl" />
-              LinkedIn
+              <FaGithub className="text-xl hover:text-gray-300 cursor-pointer" />
             </a>
             <a
-              href="https://twitter.com/yourprofile"
+              href="https://www.instagram.com/vipisanan"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-yellow-400 hover:text-yellow-300 text-2xl transition duration-300 transform hover:scale-110"
             >
-              <FaTwitter className="mr-2 text-4xl" />
-              Twitter
+              <FaInstagram className="text-xl hover:text-gray-300 cursor-pointer" />
             </a>
             <a
-              href="https://www.instagram.com/yourprofile"
+              href="https://twitter.com/EVipisanan"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-yellow-400 hover:text-yellow-300 text-2xl transition duration-300 transform hover:scale-110"
             >
-              <FaInstagram className="mr-2 text-4xl" />
-              Instagram
+              <FaTwitter className="text-xl hover:text-gray-300 cursor-pointer" />
+            </a>
+            <a
+              href="https://www.facebook.com/vipisanan"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook className="text-xl hover:text-gray-300 cursor-pointer" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/vipisanan"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="text-xl hover:text-gray-300 cursor-pointer" />
+            </a>
+            <a
+              href="https://www.fiverr.com/vipisanan/buying?source=avatar_menu_profile"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaF className="text-xl hover:text-gray-300 cursor-pointer" />
             </a>
           </div>
-        </div>
 
-        {/* Back to Top Button */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="mt-8 px-8 py-4 bg-yellow-400 text-purple-900 font-bold text-xl rounded-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105 shadow-lg"
-        >
-          Back to Top
-        </button>
+          {/* Contact Form */}
+          <form
+            onSubmit={handleSubmit}
+            className="mt-6 space-y-4"
+            style={{ display: "none" }}
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:ring focus:ring-indigo-500"
+              required
+            />
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              value={formData.subject}
+              onChange={handleChange}
+              className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:ring focus:ring-indigo-500"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              rows={4}
+              className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:ring focus:ring-indigo-500"
+              required
+            ></textarea>
+            <button
+              type="submit"
+              className="w-full p-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-semibold"
+            >
+              Send Message
+            </button>
+          </form>
+          {responseMessage && (
+            <p className="mt-4 text-center text-green-400">{responseMessage}</p>
+          )}
+        </div>
       </div>
     </section>
   );
-};
-
-export default ReachOutSection;
+}

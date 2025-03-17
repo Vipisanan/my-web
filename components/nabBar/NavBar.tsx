@@ -4,6 +4,16 @@ import ThemeToggle from "@/components/theme/ThemeToggle";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
 import { useTheme } from "@/hooks/useTheme";
 
+interface NavBarOptionType {
+  label: string;
+  path: string;
+}
+const navBarList: NavBarOptionType[] = [
+  { label: "Profile", path: "#profile" },
+  { label: "Education", path: "#education" },
+  { label: "Skills", path: "#skills" },
+];
+
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,21 +44,11 @@ export default function NavBar() {
         {/* Right side - Home, About, Services */}
         <div className="hidden md:flex md:items-center md:gap-2 justify-center flex-grow">
           <ul className="flex gap-4">
-            <li>
-              <a href="#profile" className="text-lg">
-                Profile
-              </a>
-            </li>
-            <li>
-              <a href="#Education" className="text-lg">
-                Education
-              </a>
-            </li>
-            <li>
-              <a href="#skills" className="text-lg">
-                Skills
-              </a>
-            </li>
+            {navBarList.map((da: NavBarOptionType, i) => (
+              <li key={i} className="text-lg">
+                <a href={da.path}>{da.label}</a>
+              </li>
+            ))}
           </ul>
         </div>
         {/* Place Theme Toggle button on the right side, always visible */}
@@ -78,18 +78,14 @@ export default function NavBar() {
       <div
         className={`${
           isOpen ? "block" : "hidden"
-        } md:hidden w-full mt-4 bg-gray-100 p-4 rounded-lg transition-all duration-300 ease-in-out`}
+        } md:hidden w-full mt-4  p-4 rounded-lg transition-all duration-300 ease-in-out`}
       >
         <ul className="flex flex-col gap-4 text-lg">
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#services">Services</a>
-          </li>
+          {navBarList.map((da: NavBarOptionType, i) => (
+            <li key={i}>
+              <a href={da.path}>{da.label}</a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

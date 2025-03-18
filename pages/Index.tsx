@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import LandingPage from "./LandingPage";
 import "../styles/animation.css";
+import DownloadResumeButton from "@/components/common/DownloadResumeButton";
 
 export default function App() {
   const [randomNumber, setRandomNumber] = useState<{ [key: string]: number }>(
@@ -52,6 +53,7 @@ export default function App() {
         )}
         <div className="absolute w-56 h-56 bg-purple-600 rounded-full opacity-20 bottom-0 right-0 animate-float"></div>
       </div>
+      <DownloadResumeButton />
 
       <LandingPage />
     </>

@@ -35,14 +35,25 @@ export default function LandingPage() {
               <Intro />
             </div>
           )}
-          <ProfilePage />
-          <EducationPage />
-          <OnlineCoursesSection />
-          {/* <Skills /> */}
-          <SkillsSection />
-          <SampleWorkComponent />
-
-          <ReachOutSection />
+          <div id="profile">
+            <ProfilePage />
+          </div>
+          <div id="education">
+            <EducationPage />
+          </div>
+          <div id="online-courses">
+            <OnlineCoursesSection />
+          </div>
+          <div id="skills">
+            <SkillsSection />
+          </div>
+          <div id="sample-work">
+            {/* TODO: later ill add this part */}
+            {/* <SampleWorkComponent /> */}
+          </div>
+          <div id="reach-out">
+            <ReachOutSection />
+          </div>
         </div>
       </div>
     </RootComponent>

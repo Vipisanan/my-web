@@ -1,15 +1,6 @@
 "use client";
 import React from "react";
 
-interface certificateType {
-  year: string;
-  providerName: string;
-  providerLogo: string;
-  title: string;
-  details: string;
-  skiles: string[];
-  certificateUrl: string;
-}
 const educationData = [
   {
     year: "2016-2020",
@@ -27,7 +18,7 @@ const educationData = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzhiRzqbDZXYirS52fmLBpclZs6NvaHQlKrQ&s",
   },
 ];
-const onlineCoursesData: certificateType[] = [
+const onlineCoursesData = [
   {
     year: "Feb 2025",
     providerName: "Udamy",
@@ -120,7 +111,7 @@ const Education = () => {
 
   return (
     <>
-      <section className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-start">
+      <section className="py-16 px-6 md:px-0 max-w-6xl mx-auto flex flex-col md:flex-row items-start">
         {/* Left Side - Education Title */}
         <div className="md:w-1/3 mb-8 md:mb-0">
           <h2 className="text-3xl font-bold">Education</h2>

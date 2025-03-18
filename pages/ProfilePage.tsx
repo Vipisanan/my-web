@@ -1,3 +1,4 @@
+import SlideInText from "@/components/styleComponent/SlideInTextAnimation";
 import React from "react";
 
 export default function ProfilePage() {
@@ -63,24 +64,27 @@ export default function ProfilePage() {
                   </div>
                 </div>
 
-                {/* Career Goal Again */}
+                {/* Career Goal
                 <div>
                   <h4 className="text-lg font-semibold">Career Goal</h4>
                   <div className="bg-gray-700 text-white px-4 py-2 rounded-md mt-2">
                     Software Architect
                   </div>
                 </div>
+                 */}
               </div>
             </div>
 
             {/* Right Image */}
-            <div className="flex justify-center items-center h-full">
-              <img
-                src="assert/me1.jpg"
-                alt="Profile"
-                className="w-64 h-64 md:w-[50%] md:h-[80%] rounded-full object-cover border-4 border-gray-500"
-              />
-            </div>
+            <SlideInText>
+              <div className="flex justify-center items-center h-full">
+                <img
+                  src="assert/me1.jpg"
+                  alt="Profile"
+                  className="w-64 h-64 md:w-[50%] md:h-[80%] rounded-full object-cover border-4 border-gray-500"
+                />
+              </div>
+            </SlideInText>
           </div>
         </div>
       </section>

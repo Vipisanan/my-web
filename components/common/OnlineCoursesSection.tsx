@@ -1,7 +1,19 @@
 import React from "react";
+import CertificateWidget from "../widgets/CertificateWidget";
 
 const OnlineCoursesSection = () => {
   const onlineCourses = [
+    {
+      year: "Feb 2025",
+      providerName: "LinkedIn",
+      providerLogo: "assert/linkedinLearn.png",
+      title: "AWS Essential Training for Developers",
+      details:
+        "Through the AWS Essential Training for Developers course, I have gained skills in managing IAM users and security policies, deploying and scaling EC2 instances, and utilizing AWS storage and database solutions.",
+      skills: ["IAM", "EC2", "VPC", "S3"],
+      certificateUrl:
+        "https://media.licdn.com/dms/image/v2/D5622AQHfWUx3vJLLwQ/feedshare-shrink_1280/B56ZWpZsLCGsAk-/0/1742303839247?e=1745452800&v=beta&t=gErzPs559CbYnlcpDvvvDGTimUs8HVjSB7lC7V_Vqsc",
+    },
     {
       year: "Feb 2025",
       providerName: "Udemy",
@@ -9,7 +21,7 @@ const OnlineCoursesSection = () => {
       title: "Java Spring Framework 6 with Spring Boot 3",
       details:
         "Gained hands-on experience in Spring Core, AOP, JPA, REST, Security, Microservices, and Docker.",
-      skills: ["Sprin Core", "AOP"],
+      skills: ["Spring Core", "AOP", "Rest API"],
       certificateUrl:
         "https://udemy-certificate.s3.amazonaws.com/image/UC-1a3cf1bb-ce49-4494-b53d-4272ba0d2b8c.jpg",
     },
@@ -69,56 +81,12 @@ const OnlineCoursesSection = () => {
         </div>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-          {onlineCourses.map((course, index) => (
-            <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <img
-                  src={course.providerLogo}
-                  alt={course.providerName}
-                  className="w-10 h-10"
-                />
-                <div>
-                  <h3 className="text-xl font-semibold text-purple-700">
-                    {course.title}
-                  </h3>
-                  <p className="text-gray-500">
-                    {course.year} | {course.providerName}
-                  </p>
-                </div>
-              </div>
-
-              <p className="text-gray-700">{course.details}</p>
-
-              {course.skills.length > 0 && (
-                <div className="mt-4">
-                  <h4 className="text-lg font-semibold text-gray-800">
-                    Key Skills:
-                  </h4>
-                  <ul className="flex flex-wrap gap-2 mt-2">
-                    {course.skills.map((skill, i) => (
-                      <li
-                        key={i}
-                        className="px-3 py-1 bg-purple-100 text-purple-800 rounded-lg text-sm"
-                      >
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <div className="mt-6">
-                <a
-                  href={course.certificateUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-purple-600 font-semibold hover:underline flex items-center gap-2"
-                >
-                  🎓 View Certificate
-                </a>
-              </div>
-            </div>
-          ))}
+          {onlineCourses &&
+            onlineCourses.map((course: any, index) => (
+              <React.Fragment key={index}>
+                <CertificateWidget certificateData={course} />
+              </React.Fragment>
+            ))}
         </div>
       </div>
     </section>

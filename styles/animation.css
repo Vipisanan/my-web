@@ -1,0 +1,44 @@
+/* CSS */
+@keyframes glowingText {
+    0% {
+        text-shadow: 0 0 5px #ff6a00, 0 0 10px #ff6a00, 0 0 15px #ff6a00;
+    }
+
+    50% {
+        text-shadow: 0 0 20px #ff6a00, 0 0 30px #ff6a00, 0 0 40px #ff6a00;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #ff6a00, 0 0 10px #ff6a00, 0 0 15px #ff6a00;
+    }
+}
+
+.glowing-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: transparent;
+    background-image: linear-gradient(to left, #ff6a00, #ee0979);
+    background-clip: text;
+    animation: glowingText 1.5s ease-in-out infinite alternate;
+}
+
+/* ---- */
+
+/* CSS */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    font-size: 1.5rem;
+    font-weight: bold;
+    animation: slideIn 1s ease-out;
+}

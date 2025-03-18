@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
 import { useTheme } from "@/hooks/useTheme";
+import React from "react";
 
 interface NavBarOptionType {
   label: string;
@@ -12,6 +13,7 @@ const navBarList: NavBarOptionType[] = [
   { label: "Profile", path: "#profile" },
   { label: "Education", path: "#education" },
   { label: "Skills", path: "#skills" },
+  { label: "Reach out", path: "#reach-out" },
 ];
 
 export default function NavBar() {
@@ -34,7 +36,7 @@ export default function NavBar() {
         {/* Left side of the navbar - Vipisanan (Center vertically) */}
         <div className="navbar-start flex items-center w-full justify-start">
           <a
-            className="link text-base-content link-neutral text-xl font-semibold no-underline flex items-center"
+            className="link text-base-content link-neutral text-xl font-semibold no-underline flex items-center glowing-text slide-in"
             href="#"
           >
             Vipisanan
@@ -45,9 +47,18 @@ export default function NavBar() {
         <div className="hidden md:flex md:items-center md:gap-2 justify-center flex-grow">
           <ul className="flex gap-4">
             {navBarList.map((da: NavBarOptionType, i) => (
-              <li key={i} className="text-lg">
-                <a href={da.path}>{da.label}</a>
-              </li>
+              <React.Fragment key={i}>
+                <li className="text-lg">
+                  <a href={da.path} className="whitespace-nowrap">
+                    {da.label}
+                  </a>
+                </li>
+                {i !== navBarList.length - 1 && (
+                  <span className="text-lg text-gray-400 transition-all duration-300 hover:text-blue-500">
+                    |
+                  </span>
+                )}
+              </React.Fragment>
             ))}
           </ul>
         </div>

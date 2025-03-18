@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import LandingPage from "./LandingPage";
+import "../styles/animation.css";
 
 export default function App() {
   const [randomNumber, setRandomNumber] = useState<{ [key: string]: number }>(

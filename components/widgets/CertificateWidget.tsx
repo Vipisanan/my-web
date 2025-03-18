@@ -38,7 +38,7 @@ const CertificateWidget: React.FC<CertificateWidgetProps> = ({
             </div>
           </div>
 
-          <p className="text-gray-700">{certificateData.details}</p>
+          <p className="text-sm text-gray-700">{certificateData.details}</p>
 
           {certificateData.skills && certificateData.skills.length > 0 && (
             <div className="mt-4">

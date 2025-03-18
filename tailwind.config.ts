@@ -7,6 +7,9 @@ module.exports = {
   darkMode: "class", // This stops Tailwind from auto-switching themes
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"],
+      },
       colors: {
         primary: "#1E40AF", // Custom Blue
         secondary: "#9333EA", // Custom Purple

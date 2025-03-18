@@ -19,7 +19,7 @@ export default function ProfilePage() {
             {/* Left Content */}
             <div>
               <h3 className="text-2xl font-bold mb-4">About Me</h3>
-              <p className="">
+              <p className="text-md">
                 Hi, I'm Vipisanan, A dedicated Full Stack Developer with over
                 4.5 years of experience in building and maintaining robust
                 software applications. Proficient in Java, Spring Boot, ReactJS,

@@ -10,7 +10,7 @@ const DownloadResumeButton = () => {
       href={resumeLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="z-50 fixed top-24 right-24 bg-blue-600 text-white p-3 
+      className="z-50 fixed top-24 right-3 md:right-18 bg-blue-600 text-white p-3 
       rounded-full shadow-lg hover:bg-blue-700 transition duration-300 
       flex items-center justify-center"
     >

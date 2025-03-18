@@ -122,9 +122,13 @@ const Education = () => {
         {/* Right Side - Education List */}
         <div className="md:w-2/3 space-y-10">
           {educationData.map((edu, index) => (
-            <div key={index} className="flex items-start gap-6">
-              <SlideInText>{educationBox(edu)}</SlideInText>
-            </div>
+            <React.Fragment key={index}>
+              <SlideInText>
+                <div className="flex items-start gap-6">
+                  {educationBox(edu)}
+                </div>
+              </SlideInText>
+            </React.Fragment>
           ))}
         </div>
       </section>

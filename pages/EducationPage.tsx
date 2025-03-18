@@ -1,4 +1,5 @@
 "use client";
+import SlideInText from "@/components/styleComponent/SlideInTextAnimation";
 import React from "react";
 
 const educationData = [
@@ -122,7 +123,7 @@ const Education = () => {
         <div className="md:w-2/3 space-y-10">
           {educationData.map((edu, index) => (
             <div key={index} className="flex items-start gap-6">
-              {educationBox(edu)}
+              <SlideInText>{educationBox(edu)}</SlideInText>
             </div>
           ))}
         </div>

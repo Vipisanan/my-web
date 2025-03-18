@@ -1,5 +1,6 @@
 import React from "react";
 import CertificateWidget from "../widgets/CertificateWidget";
+import SlideInText from "../styleComponent/SlideInTextAnimation";
 
 const OnlineCoursesSection = () => {
   const onlineCourses = [
@@ -84,7 +85,9 @@ const OnlineCoursesSection = () => {
           {onlineCourses &&
             onlineCourses.map((course: any, index) => (
               <React.Fragment key={index}>
-                <CertificateWidget certificateData={course} />
+                <SlideInText>
+                  <CertificateWidget certificateData={course} />
+                </SlideInText>
               </React.Fragment>
             ))}
         </div>

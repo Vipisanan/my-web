@@ -1,9 +1,11 @@
 import React from "react";
+import SkillWidget, { SkillDataType } from "../widgets/SkillWidget";
+import SlideInText from "../styleComponent/SlideInTextAnimation";
 
 const SkillsSection = () => {
-  const skills = [
+  const skills: SkillDataType[] = [
     {
-      category: "Backend",
+      category: "⚙️ Backend",
       skills: [
         "Java",
         "Spring Boot",
@@ -12,11 +14,15 @@ const SkillsSection = () => {
       ],
     },
     {
-      category: "Frontend",
+      category: "🎨 Frontend",
       skills: ["ReactJS", "Redux", "TypeScript", "JavaScript"],
     },
     {
-      category: "Tools",
+      category: "☁️ Cloud",
+      skills: ["AWS", "AWS EC2", "VPC", "S3"],
+    },
+    {
+      category: "🛠️ Tools",
       skills: ["Linux", "Jira", "Git", "Swagger", "Postman"],
     },
   ];
@@ -34,21 +40,11 @@ const SkillsSection = () => {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
           {skills.map((category, index) => (
-            <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-semibold text-purple-700 mb-4">
-                {category.category}
-              </h3>
-              <ul className="space-y-2">
-                {category.skills.map((skill, i) => (
-                  <li
-                    key={i}
-                    className="text-lg text-gray-700 flex items-center gap-2"
-                  >
-                    <span className="text-green-500">✔️</span> {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <React.Fragment key={index}>
+              <SlideInText>
+                <SkillWidget skillData={category} />
+              </SlideInText>
+            </React.Fragment>
           ))}
         </div>
       </div>

@@ -3,12 +3,10 @@ import { useState } from "react";
 const ImageViewModal = ({
   src,
   alt,
-  cssClassName = "rounded-lg shadow-lg hover:opacity-80 transition",
   handleClose,
 }: {
   src: string;
   alt?: string;
-  cssClassName?: string;
   handleClose: () => void;
 }) => {
   return (

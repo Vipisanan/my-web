@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import ImageViewModal from "../common/ImageViewModal";
 
 export interface OnlineCoursesDataType {
   year: string;
@@ -17,10 +20,18 @@ interface CertificateWidgetProps {
 const CertificateWidget: React.FC<CertificateWidgetProps> = ({
   certificateData,
 }) => {
-  console.log(certificateData);
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div className="bg-gray-50 p-6 rounded-lg shadow-lg flex flex-col h-full">
+        {isOpen && (
+          <ImageViewModal
+            src={certificateData.certificateUrl}
+            handleClose={() => setIsOpen(false)}
+            cssClassName="h-4/5"
+          />
+        )}
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-4">
             <img
@@ -60,14 +71,13 @@ const CertificateWidget: React.FC<CertificateWidgetProps> = ({
         </div>
 
         <div className="mt-auto">
-          <a
-            href={certificateData.certificateUrl}
-            target="_blank"
+          <p
             rel="noopener noreferrer"
-            className="mt-2 text-purple-600 font-semibold hover:underline flex items-center gap-2"
+            className="mt-2 cursor-pointer text-purple-600 font-semibold flex items-center gap-2"
+            onClick={() => setIsOpen(true)}
           >
             🎓 View Certificate
-          </a>
+          </p>
         </div>
       </div>
     </>

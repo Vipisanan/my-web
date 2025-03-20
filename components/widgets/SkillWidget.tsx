@@ -19,7 +19,7 @@ const SkillWidget: React.FC<SkillWidgetProps> = ({ skillData }) => {
         className={` ${theme === "light" ? "bg-gray-50" : "bg-gray-900"}
         bg-gray-50 h-full p-6 rounded-lg shadow-lg`}
       >
-        <h3 className="text-2xl font-semibold">{skillData.category}</h3>
+        <h3 className="text-2xl font-semibold pb-3">{skillData.category}</h3>
         <ul className="space-y-2 ">
           {skillData.skills.map((skill, i) => (
             <li

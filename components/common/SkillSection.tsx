@@ -38,7 +38,7 @@ const SkillsSection = () => {
           <div className="border-b-2 border-purple-500 w-20 mt-2"></div>
         </div>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+        <div className="mt-10 grid gap-8 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
           {skills.map((category, index) => (
             <React.Fragment key={index}>
               <SlideInText>

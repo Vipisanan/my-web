@@ -24,7 +24,7 @@ export default function NavBar() {
   return (
     <nav
       className={`navbar mx-auto w-full max-w-[1800px] 
-        px-4 py-4 
+        px-4 py-3 
         items-center 
         shadow-lg shadow-gray-400 
         dark:shadow-gray-600

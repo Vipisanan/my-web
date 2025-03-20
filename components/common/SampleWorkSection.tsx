@@ -7,22 +7,25 @@ import SlideInText from "../styleComponent/SlideInTextAnimation";
 const SampleWorkSection = () => {
   const workSamples: SampleWorkDataType[] = [
     {
-      name: "RMS",
-      description: "A web application for managing tasks.",
-      year: "2023",
+      name: "Koach",
+      description:
+        "Koach Hub connects coaches, players, and parents with training, scheduling, evaluations, and real-time updates.",
+      year: "2021",
       imageUrl: "assert/koach.png",
       url: "https://koachhub.com/",
     },
     {
       name: "Knodify",
-      description: "A mobile app for real-time communication.",
+      description:
+        "An online learning system enables tutors to share materials, and students access them via subscription.",
       year: "2021",
       imageUrl: "assert/knodify.png",
       url: "https://koachhub.com/",
     },
     {
       name: "Inomas",
-      description: "An AI-powered analytics platform.",
+      description:
+        "Inomas optimizes restaurant management with scheduling, payroll tracking, and collaborative features for seamless operations.",
       year: "2020",
       imageUrl: "assert/inomas.png",
       url: "assert/inomas.png",
@@ -31,7 +34,7 @@ const SampleWorkSection = () => {
       name: "SenzAgro",
       description:
         "SenzAgro optimizes sustainable farming with technology, enhancing yields while conserving water, land, and energy.",
-      year: "2019",
+      year: "2018-2019",
       imageUrl: "assert/senz-agro.png",
       url: "https://senzagro.com/",
     },

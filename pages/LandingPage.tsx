@@ -49,7 +49,7 @@ export default function LandingPage() {
           </div>
           <div id="sample-work">
             {/* TODO: later ill add this part */}
-            {/* <SampleWorkComponent /> */}
+            <SampleWorkComponent />
           </div>
           <div id="reach-out">
             <ReachOutSection />

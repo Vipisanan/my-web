@@ -1,27 +1,39 @@
 import React from "react";
+import SampleWorkWidget, {
+  SampleWorkDataType,
+} from "../widgets/SampleWorkWidget";
+import SlideInText from "../styleComponent/SlideInTextAnimation";
 
 const SampleWorkSection = () => {
-  const workSamples = [
+  const workSamples: SampleWorkDataType[] = [
     {
       name: "RMS",
       description: "A web application for managing tasks.",
-      year: 2023,
-      imageUrl: "https://via.placeholder.com/150",
-      url: "https://example.com/project-alpha",
+      year: "2023",
+      imageUrl: "assert/koach.png",
+      url: "https://koachhub.com/",
     },
     {
-      name: "Beta App",
+      name: "Knodify",
       description: "A mobile app for real-time communication.",
-      year: 2022,
-      imageUrl: "https://via.placeholder.com/150",
-      url: "https://example.com/beta-app",
+      year: "2021",
+      imageUrl: "assert/knodify.png",
+      url: "https://koachhub.com/",
     },
     {
-      name: "Gamma Tool",
+      name: "Inomas",
       description: "An AI-powered analytics platform.",
-      year: 2024,
-      imageUrl: "https://via.placeholder.com/150",
-      url: "https://example.com/gamma-tool",
+      year: "2020",
+      imageUrl: "assert/inomas.png",
+      url: "assert/inomas.png",
+    },
+    {
+      name: "SenzAgro",
+      description:
+        "SenzAgro optimizes sustainable farming with technology, enhancing yields while conserving water, land, and energy.",
+      year: "2019",
+      imageUrl: "assert/senz-agro.png",
+      url: "https://senzagro.com/",
     },
   ];
 
@@ -33,28 +45,13 @@ const SampleWorkSection = () => {
           <h2 className="text-3xl font-bold ">My Sample Work</h2>
           <div className="border-b-2 border-purple-500 w-20 mt-2"></div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {workSamples.map((work, index) => (
-            <div key={index} className="p-6 bg-white shadow-md rounded-lg">
-              <img
-                src={work.imageUrl}
-                alt={work.name}
-                className="w-full h-40 object-cover rounded-md mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-2">{work.name}</h3>
-              <p className="text-gray-600 mb-2">{work.description}</p>
-              <span className="text-gray-500 text-sm block mb-2">
-                {work.year}
-              </span>
-              <a
-                href={work.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                View Project
-              </a>
-            </div>
+            <React.Fragment key={index}>
+              <SlideInText>
+                <SampleWorkWidget data={work} />
+              </SlideInText>
+            </React.Fragment>
           ))}
         </div>
       </div>

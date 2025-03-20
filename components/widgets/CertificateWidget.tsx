@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import ImageViewModal from "../common/ImageViewModal";
+import { useTheme } from "@/hooks/useTheme";
+import Chip from "../common/Chip";
 
 export interface OnlineCoursesDataType {
   year: string;
@@ -21,10 +23,14 @@ const CertificateWidget: React.FC<CertificateWidgetProps> = ({
   certificateData,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const theme = useTheme();
 
   return (
     <>
-      <div className="bg-gray-50 p-6 rounded-lg shadow-lg flex flex-col h-full">
+      <div
+        className={` ${theme === "light" ? "bg-gray-50" : "bg-gray-900"}
+         p-6 rounded-lg shadow-lg flex flex-col h-full`}
+      >
         {isOpen && (
           <ImageViewModal
             src={certificateData.certificateUrl}
@@ -40,30 +46,40 @@ const CertificateWidget: React.FC<CertificateWidgetProps> = ({
               className="w-10 h-10"
             />
             <div>
-              <h3 className="text-xl font-semibold text-purple-700">
-                {certificateData.title}
-              </h3>
-              <p className="text-gray-500">
+              <h3 className="text-xl font-semibold">{certificateData.title}</h3>
+              <p
+                className={`${
+                  theme === "light" ? "  text-gray-500 " : "text-gray-500"
+                } text-sm`}
+              >
                 {certificateData.year} | {certificateData.providerName}
               </p>
             </div>
           </div>
 
-          <p className="text-sm text-gray-700">{certificateData.details}</p>
+          <p
+            className={`${
+              theme === "light" ? "  text-gray-700 " : "bg-white-700"
+            } text-sm`}
+          >
+            {certificateData.details}
+          </p>
 
           {certificateData.skills && certificateData.skills.length > 0 && (
             <div className="mt-4">
-              <h4 className="text-lg font-semibold text-gray-800">
+              <h4
+                className={`${
+                  theme === "light" ? "  text-gray-800 " : "bg-white-700"
+                }
+                text-lg font-semibold`}
+              >
                 Key Skills:
               </h4>
               <ul className="flex flex-wrap gap-2 mt-2">
                 {certificateData.skills.map((skill, i) => (
-                  <li
-                    key={i}
-                    className="px-3 py-1 bg-purple-100 text-purple-800 rounded-lg text-sm"
-                  >
-                    {skill}
-                  </li>
+                  <React.Fragment key={i}>
+                    <Chip text={skill} />
+                  </React.Fragment>
                 ))}
               </ul>
             </div>
@@ -73,10 +89,10 @@ const CertificateWidget: React.FC<CertificateWidgetProps> = ({
         <div className="mt-auto">
           <p
             rel="noopener noreferrer"
-            className="mt-2 cursor-pointer text-purple-600 font-semibold flex items-center gap-2"
+            className="mt-2 cursor-pointer  font-semibold flex items-center gap-2"
             onClick={() => setIsOpen(true)}
           >
-            🎓 View Certificate
+            <span> 🎓 </span>View Certificate
           </p>
         </div>
       </div>

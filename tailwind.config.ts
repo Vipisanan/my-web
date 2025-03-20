@@ -9,6 +9,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
+        serif: ["Merriweather", "serif"],
+        mono: ["Fira Code", "monospace"],
       },
       colors: {
         primary: "#1E40AF", // Custom Blue

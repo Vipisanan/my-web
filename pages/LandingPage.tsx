@@ -48,7 +48,6 @@ export default function LandingPage() {
             <SkillsSection />
           </div>
           <div id="sample-work">
-            {/* TODO: later ill add this part */}
             <SampleWorkComponent />
           </div>
           <div id="reach-out">

@@ -16,8 +16,8 @@ export default function LandingPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsFading(true);
-      setTimeout(() => setIsVisible(false), 1000);
-    }, 1000);
+      setTimeout(() => setIsVisible(false), 1500);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -28,7 +28,7 @@ export default function LandingPage() {
         <div className="w-full mt-2">
           {isVisible && (
             <div
-              className={`p-0 rounded transition-all duration-1000 ${
+              className={`p-0 rounded transition-all duration-1500 ${
                 isFading ? "opacity-0 translate-y-[90px]" : "opacity-1000"
               }`}
             >

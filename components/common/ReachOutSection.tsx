@@ -10,7 +10,6 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { FaF } from "react-icons/fa6";
-import { Resend } from "resend";
 
 export default function ReachOutSection() {
   const [formData, setFormData] = useState({
@@ -19,6 +18,9 @@ export default function ReachOutSection() {
     message: "",
   });
   const [responseMessage, setResponseMessage] = useState("");
+  const [responseMessageType, setResponseMessageType] = useState<
+    "error" | "success"
+  >("success");
   const [loading, setLoading] = useState(false);
   const theme = useTheme();
 
@@ -41,12 +43,20 @@ export default function ReachOutSection() {
 
       const data = await res.json();
       if (data.success) {
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
         setResponseMessage("Email sent successfully!");
+        setResponseMessageType("success");
       } else {
         setResponseMessage(`Error: ${data.error}`);
+        setResponseMessageType("error");
       }
     } catch (error) {
       setResponseMessage("Failed to send email. Please try again.");
+      setResponseMessageType("error");
     }
 
     setLoading(false);
@@ -149,7 +159,7 @@ export default function ReachOutSection() {
             <input
               type="email"
               name="email"
-              placeholder="Subject"
+              placeholder="Email"
               value={formData.email}
               onChange={handleChange}
               className={`
@@ -180,14 +190,27 @@ export default function ReachOutSection() {
             ></textarea>
             <button
               type="submit"
-              className="w-full text-white p-3 bg-purple-600 hover:bg-purple-700 
-              rounded-lg font-semibold"
+              className={`
+                 disabled:bg-purple-400 disabled:cursor-default disabled:text-gray-600
+                   cursor-pointer w-full
+                 text-white p-3 bg-purple-600 hover:bg-purple-700 
+              rounded-lg font-semibold`}
+              disabled={loading}
             >
               Send Message
             </button>
           </form>
-          {responseMessage && (
-            <p className="mt-4 text-center text-green-400">{responseMessage}</p>
+          {responseMessage && responseMessageType && (
+            <p
+              className={` ${
+                responseMessageType === "success"
+                  ? "text-green-400"
+                  : " text-red-400"
+              }
+            mt-4 text-center `}
+            >
+              {responseMessage}
+            </p>
           )}
         </div>
       </div>

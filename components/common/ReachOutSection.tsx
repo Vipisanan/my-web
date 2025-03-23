@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "@/hooks/useTheme";
 import { useState } from "react";
 import {
   FaInstagram,
@@ -9,14 +10,17 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { FaF } from "react-icons/fa6";
+import { Resend } from "resend";
 
 export default function ReachOutSection() {
   const [formData, setFormData] = useState({
     name: "",
-    subject: "",
+    email: "",
     message: "",
   });
   const [responseMessage, setResponseMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const theme = useTheme();
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,23 +28,28 @@ export default function ReachOutSection() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setLoading(true);
+    setResponseMessage("");
     try {
-      const response = await fetch("/api/contact", {
-        // Corrected route
+      const res = await fetch("/api/send-email", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        setResponseMessage("Message sent successfully!");
-        setFormData({ name: "", subject: "", message: "" });
+      const data = await res.json();
+      if (data.success) {
+        setResponseMessage("Email sent successfully!");
       } else {
-        setResponseMessage("Failed to send message. Please try again.");
+        setResponseMessage(`Error: ${data.error}`);
       }
     } catch (error) {
-      setResponseMessage("An error occurred. Please try again later.");
+      setResponseMessage("Failed to send email. Please try again.");
     }
+
+    setLoading(false);
   };
 
   return (
@@ -121,27 +130,36 @@ export default function ReachOutSection() {
           </div>
 
           {/* Contact Form */}
-          <form
-            onSubmit={handleSubmit}
-            className="mt-6 space-y-4"
-            style={{ display: "none" }}
-          >
+          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:ring focus:ring-indigo-500"
+              className={` ${
+                theme === "light"
+                  ? "bg-gray-100 border-gray-700 "
+                  : " bg-gray-800 border-gray-600 "
+              }
+              w-full p-3  rounded-lg border 
+              focus:ring focus:ring-purple-500`}
               required
             />
             <input
-              type="text"
-              name="subject"
+              type="email"
+              name="email"
               placeholder="Subject"
-              value={formData.subject}
+              value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:ring focus:ring-indigo-500"
+              className={`
+                ${
+                  theme === "light"
+                    ? "bg-gray-100 border-gray-700 "
+                    : " bg-gray-800 border-gray-600 "
+                }
+              w-full p-3 rounded-lg border
+               focus:ring focus:ring-purple-500`}
               required
             />
             <textarea
@@ -150,12 +168,20 @@ export default function ReachOutSection() {
               value={formData.message}
               onChange={handleChange}
               rows={4}
-              className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:ring focus:ring-indigo-500"
+              className={` ${
+                theme === "light"
+                  ? "bg-gray-100 border-gray-700 "
+                  : " bg-gray-800 border-gray-600 "
+              }
+                w-full p-3 rounded-lg border
+                 focus:ring
+                  focus:ring-purple-500`}
               required
             ></textarea>
             <button
               type="submit"
-              className="w-full p-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-semibold"
+              className="w-full text-white p-3 bg-purple-600 hover:bg-purple-700 
+              rounded-lg font-semibold"
             >
               Send Message
             </button>

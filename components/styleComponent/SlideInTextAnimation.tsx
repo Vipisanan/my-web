@@ -47,7 +47,7 @@ export default function SlideInText({ children }: RootComponentProps) {
   }, []);
 
   return (
-    <div ref={ref} className={`${isVisible ? "slide-in" : ""}`}>
+    <div ref={ref} className={`${isVisible ? "md:slide-in" : ""}`}>
       {children}
     </div>
   );

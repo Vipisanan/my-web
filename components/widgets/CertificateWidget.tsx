@@ -13,6 +13,7 @@ export interface OnlineCoursesDataType {
   details: string;
   skills: string[];
   certificateUrl: string;
+  certificate: string;
 }
 
 interface CertificateWidgetProps {
@@ -33,7 +34,11 @@ const CertificateWidget: React.FC<CertificateWidgetProps> = ({
       >
         {isOpen && (
           <ImageViewModal
-            src={certificateData.certificateUrl}
+            src={
+              certificateData.certificate
+                ? certificateData.certificate
+                : certificateData.certificateUrl
+            }
             handleClose={() => setIsOpen(false)}
             cssClassName="h-4/5"
           />
@@ -86,13 +91,26 @@ const CertificateWidget: React.FC<CertificateWidgetProps> = ({
           )}
         </div>
 
-        <div className="mt-auto">
+        <div className="mt-auto flex justify-between items-center">
+          {/* Left Side - View Certificate */}
           <p
             rel="noopener noreferrer"
-            className="mt-2 cursor-pointer  font-semibold flex items-center gap-2"
+            className="mt-2 cursor-pointer font-semibold flex items-center gap-2 text-blue-500"
             onClick={() => setIsOpen(true)}
           >
-            <span> 🎓 </span>View Certificate
+            <span>🎓</span>View Certificate
+          </p>
+
+          {/* Right Side - View */}
+          <p className="mt-2 cursor-pointer font-semibold flex items-center gap-2">
+            <a
+              href={certificateData.certificateUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500"
+            >
+              <span>🔗</span> Verify
+            </a>
           </p>
         </div>
       </div>

@@ -1,9 +1,11 @@
 import React from "react";
-import CertificateWidget from "../widgets/CertificateWidget";
+import CertificateWidget, {
+  OnlineCoursesDataType,
+} from "../widgets/CertificateWidget";
 import SlideInText from "../styleComponent/SlideInTextAnimation";
 
 const OnlineCoursesSection = () => {
-  const onlineCourses = [
+  const onlineCourses: OnlineCoursesDataType[] = [
     {
       year: "Feb 2025",
       providerName: "LinkedIn",
@@ -12,6 +14,7 @@ const OnlineCoursesSection = () => {
       details:
         "Through the AWS Essential Training for Developers course, I have gained skills in managing IAM users and security policies, deploying and scaling EC2 instances, and utilizing AWS storage and database solutions.",
       skills: ["IAM", "EC2", "VPC", "S3"],
+      certificate: "/assert/certificates/vipisanan-aws-essential-lnk.png",
       certificateUrl:
         "https://media.licdn.com/dms/image/v2/D5622AQHfWUx3vJLLwQ/feedshare-shrink_1280/B56ZWpZsLCGsAk-/0/1742303839247?e=1745452800&v=beta&t=gErzPs559CbYnlcpDvvvDGTimUs8HVjSB7lC7V_Vqsc",
     },
@@ -23,6 +26,7 @@ const OnlineCoursesSection = () => {
       details:
         "Gained hands-on experience in Spring Core, AOP, JPA, REST, Security, Microservices, and Docker.",
       skills: ["Spring Core", "AOP", "Rest API"],
+      certificate: "/assert/certificates/vipisanan-spring-boot-udm.png",
       certificateUrl:
         "https://udemy-certificate.s3.amazonaws.com/image/UC-1a3cf1bb-ce49-4494-b53d-4272ba0d2b8c.jpg",
     },
@@ -34,6 +38,7 @@ const OnlineCoursesSection = () => {
       details:
         "Enhanced skills in writing maintainable code using TDD, JUnit, and Mockito for Spring Boot applications.",
       skills: ["TDD", "JUnit", "Mockito", "Spring Boot"],
+      certificate: "/assert/certificates/vipisanan-tdd-lnk.png",
       certificateUrl:
         "https://media.licdn.com/dms/image/v2/D5622AQFpf7MNYYVK0w/feedshare-shrink_1280/B56ZUzV4rjHEAs-/0/1740323130314?e=1744848000&v=beta&t=cBReXJO9Hcn4RZsus0gbAwdMLzyjPJpJuYuUVeEUbGk",
     },
@@ -45,6 +50,7 @@ const OnlineCoursesSection = () => {
       details:
         "Mastered containerization concepts, Docker Compose, networking, and security best practices.",
       skills: ["Docker"],
+      certificate: "/assert/certificates/vipisanan-docker-udm.png",
       certificateUrl:
         "https://udemy-certificate.s3.amazonaws.com/image/UC-1da17628-2e8d-46ad-820c-195d10e8e559.jpg?v=1737466124000",
     },
@@ -56,6 +62,8 @@ const OnlineCoursesSection = () => {
       details:
         "Developed strategies to boost productivity, manage time effectively, and build better habits.",
       skills: ["Time Management"],
+      certificate:
+        "/assert/certificates/vipisanan-overcoming-procrastination-lnk.png",
       certificateUrl:
         "https://media.licdn.com/dms/image/v2/D5622AQF7eT_ldRj-FQ/feedshare-shrink_1280/B56ZTlNd.pHoAk-/0/1739012300956?e=1744848000&v=beta&t=F2WKteNgb8yPeGYiQ-hY4OAqxEIVm78dRs-7UIzlKrM",
     },
@@ -67,6 +75,7 @@ const OnlineCoursesSection = () => {
       details:
         "Learned best practices for technical communication, project management, and code review.",
       skills: ["Project Management", "Code Review", "Communication"],
+      certificate: "/assert/certificates/vipisanan-tech-communication.png",
       certificateUrl:
         "https://media.licdn.com/dms/image/v2/D5622AQGQSYS52-aLKQ/feedshare-shrink_1280/B56ZWUPSxuHQAk-/0/1741948792173?e=2147483647&v=beta&t=0Q_29qYBuL8WS4VCI9JxqosrtM13fqgc6EPJ_cpebVc",
     },

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import LandingPage from "./LandingPage";
 import "../styles/animation.css";
 import DownloadResumeButton from "@/components/common/DownloadResumeButton";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function App() {
   const [randomNumber, setRandomNumber] = useState<{ [key: string]: number }>(
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <>
+      <Analytics />
       {/* Fixed Background Shapes */}
       <div className="fixed top-0 left-0 w-full h-full z-0">
         <div className="absolute w-64 h-64 bg-purple-700 rounded-full opacity-20 -top-32 -left-32 animate-float"></div>

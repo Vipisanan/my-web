@@ -76,7 +76,7 @@ const CertificateWidget: React.FC<CertificateWidgetProps> = ({
                 className={`${
                   theme === "light" ? "  text-gray-800 " : "bg-white-700"
                 }
-                text-lg font-semibold`}
+                text-sm font-bold`}
               >
                 Key Skills:
               </h4>

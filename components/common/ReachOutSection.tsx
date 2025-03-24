@@ -96,6 +96,13 @@ export default function ReachOutSection() {
           {/* Social Icons */}
           <div className="flex gap-4 mt-4">
             <a
+              href="https://www.linkedin.com/in/vipisanan"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="text-xl hover:text-gray-300 cursor-pointer" />
+            </a>
+            <a
               href="https://www.github.com/vipisanan"
               target="_blank"
               rel="noopener noreferrer"
@@ -122,13 +129,6 @@ export default function ReachOutSection() {
               rel="noopener noreferrer"
             >
               <FaFacebook className="text-xl hover:text-gray-300 cursor-pointer" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/vipisanan"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin className="text-xl hover:text-gray-300 cursor-pointer" />
             </a>
             <a
               href="https://www.fiverr.com/vipisanan/buying?source=avatar_menu_profile"

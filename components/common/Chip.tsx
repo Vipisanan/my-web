@@ -15,7 +15,7 @@ const Chip = ({ text }: { text: string }) => {
                 ? "bg-gray-300 text-gray-800"
                 : "bg-gray-800 text-gray-400"
             }
-        px-3 py-1  rounded-lg text-sm`}
+        px-3 py-1  font-semibold rounded-lg text-sm`}
       >
         {text}
       </p>

@@ -26,7 +26,7 @@ export default async function handler(req: any, res: any) {
           body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
           .container { max-width: 600px; background: white; padding: 20px; border-radius: 8px; 
             box-shadow: 0 0 10px rgba(0,0,0,0.1); margin: auto; }
-          .header { background: #007bff; color: white; text-align: center; padding: 15px; 
+          .header { background: #9810fa; color: white; text-align: center; padding: 15px; 
             font-size: 20px; border-radius: 8px 8px 0 0; }
           .content { padding: 20px; font-size: 16px; color: #333; }
           .footer { text-align: center; font-size: 14px; color: #777; padding-top: 10px; }

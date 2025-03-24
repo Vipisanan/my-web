@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import LandingPage from "./LandingPage";
 import "../styles/animation.css";
 import DownloadResumeButton from "@/components/common/DownloadResumeButton";

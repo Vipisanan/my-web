@@ -1,5 +1,4 @@
 import { useTheme } from "@/hooks/useTheme";
-import { useState } from "react";
 
 const ImageViewModal = ({
   src,
@@ -18,7 +17,10 @@ const ImageViewModal = ({
       <div className="fixed inset-0 flex items-center justify-center bg-opacity-60 backdrop-blur-sm z-50">
         <div
           className={` ${theme === "light" ? "bg-gray-600" : "bg-white"}
-           relative rounded-lg shadow-xl p-4 max-w-4xl w-[80%]`}
+          relative rounded-lg shadow-xl p-4 
+          max-w-5xl 
+          md:w-[80%]
+          w-90`}
         >
           {/* Close Button */}
           <button
@@ -31,8 +33,8 @@ const ImageViewModal = ({
           {/* Full Image */}
           <img
             src={src}
-            alt={alt || "Image"}
-            className={`rounded-lg ${cssClassName}`}
+            alt={alt || "Vipisanan"}
+            className={`w-full h-full object-cover ${cssClassName}`}
           />
         </div>
       </div>

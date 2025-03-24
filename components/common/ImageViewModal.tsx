@@ -17,10 +17,12 @@ const ImageViewModal = ({
       <div className="fixed inset-0 flex items-center justify-center bg-opacity-60 backdrop-blur-sm z-50">
         <div
           className={` ${theme === "light" ? "bg-gray-600" : "bg-white"}
-          relative rounded-lg shadow-xl p-4 
+          relative rounded-lg shadow-xl
+          sm:p-4 
+          p-2
           max-w-5xl 
-          md:w-[80%]
-          w-90`}
+          sm:w-[60%]
+          w-80`}
         >
           {/* Close Button */}
           <button

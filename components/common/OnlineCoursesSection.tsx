@@ -16,7 +16,19 @@ const OnlineCoursesSection = () => {
       skills: ["IAM", "EC2", "VPC", "S3"],
       certificate: "/assert/certificates/vipisanan-aws-essential-lnk.png",
       certificateUrl:
-        "https://media.licdn.com/dms/image/v2/D5622AQHfWUx3vJLLwQ/feedshare-shrink_1280/B56ZWpZsLCGsAk-/0/1742303839247?e=1745452800&v=beta&t=gErzPs559CbYnlcpDvvvDGTimUs8HVjSB7lC7V_Vqsc",
+        "https://www.linkedin.com/learning/certificates/55a6c6f2ee5658b1b7ca8c7e3a2d74cb0bf47534d88c10ba2afb1fdc6f5fe0da",
+    },
+    {
+      year: "Feb 2025",
+      providerName: "LinkedIn",
+      providerLogo: "assert/linkedinLearn.png",
+      title: "React: Ecosystems",
+      details:
+        "Mastered React ecosystem, including routing, server-side rendering, animation, debugging, and workflow optimization.",
+      skills: ["Routing", "Hooks"],
+      certificate: "/assert/certificates/vipisanan-aws-essential-lnk.png",
+      certificateUrl:
+        "https://www.linkedin.com/learning/certificates/458da88fd079399a923a9e6a07e4a56c5bc8d73643f57dfef1262a1e4a1631df",
     },
     {
       year: "Feb 2025",
@@ -28,7 +40,7 @@ const OnlineCoursesSection = () => {
       skills: ["Spring Core", "AOP", "Rest API"],
       certificate: "/assert/certificates/vipisanan-spring-boot-udm.png",
       certificateUrl:
-        "https://udemy-certificate.s3.amazonaws.com/image/UC-1a3cf1bb-ce49-4494-b53d-4272ba0d2b8c.jpg",
+        "https://www.udemy.com/certificate/UC-1a3cf1bb-ce49-4494-b53d-4272ba0d2b8c/",
     },
     {
       year: "Feb 2025",
@@ -40,7 +52,7 @@ const OnlineCoursesSection = () => {
       skills: ["TDD", "JUnit", "Mockito", "Spring Boot"],
       certificate: "/assert/certificates/vipisanan-tdd-lnk.png",
       certificateUrl:
-        "https://media.licdn.com/dms/image/v2/D5622AQFpf7MNYYVK0w/feedshare-shrink_1280/B56ZUzV4rjHEAs-/0/1740323130314?e=1744848000&v=beta&t=cBReXJO9Hcn4RZsus0gbAwdMLzyjPJpJuYuUVeEUbGk",
+        "https://www.linkedin.com/learning/certificates/2887f44eaf217a086951ceb80459aa28d76fc485f131e016e9755369ea3f084b?trk=share_certificate",
     },
     {
       year: "Jan 2025",
@@ -52,7 +64,7 @@ const OnlineCoursesSection = () => {
       skills: ["Docker"],
       certificate: "/assert/certificates/vipisanan-docker-udm.png",
       certificateUrl:
-        "https://udemy-certificate.s3.amazonaws.com/image/UC-1da17628-2e8d-46ad-820c-195d10e8e559.jpg?v=1737466124000",
+        "https://www.udemy.com/certificate/UC-1da17628-2e8d-46ad-820c-195d10e8e559/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com",
     },
     {
       year: "Feb 2025",
@@ -65,7 +77,7 @@ const OnlineCoursesSection = () => {
       certificate:
         "/assert/certificates/vipisanan-overcoming-procrastination-lnk.png",
       certificateUrl:
-        "https://media.licdn.com/dms/image/v2/D5622AQF7eT_ldRj-FQ/feedshare-shrink_1280/B56ZTlNd.pHoAk-/0/1739012300956?e=1744848000&v=beta&t=F2WKteNgb8yPeGYiQ-hY4OAqxEIVm78dRs-7UIzlKrM",
+        "https://www.linkedin.com/learning/certificates/90a3e7ea0d3c4d57f7d178fadbe5f9c39ccfa4fb4d9e5f5d292d9220ceaa99a5?trk=share_certificate",
     },
     {
       year: "March 2025",
@@ -77,7 +89,7 @@ const OnlineCoursesSection = () => {
       skills: ["Project Management", "Code Review", "Communication"],
       certificate: "/assert/certificates/vipisanan-tech-communication.png",
       certificateUrl:
-        "https://media.licdn.com/dms/image/v2/D5622AQGQSYS52-aLKQ/feedshare-shrink_1280/B56ZWUPSxuHQAk-/0/1741948792173?e=2147483647&v=beta&t=0Q_29qYBuL8WS4VCI9JxqosrtM13fqgc6EPJ_cpebVc",
+        "https://www.linkedin.com/learning/certificates/351bfb5507cc08c6c0d3cded12bed74d04a7f8d17fd14caeff14ad0e9f328b1b?trk=share_certificate",
     },
   ];
 

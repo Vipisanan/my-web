@@ -25,7 +25,7 @@ export default function LandingPage() {
   return (
     <RootComponent>
       <div className="flex w-full flex-col ">
-        <div className="w-full mt-2">
+        <div className="w-full mt-2" id="home">
           {isVisible && (
             <div
               className={`p-0 rounded transition-all duration-1500 ${

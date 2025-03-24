@@ -7,47 +7,61 @@ interface RootComponentProps {
 
 export default function SlideInText({ children }: RootComponentProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    // Detect window size and update state
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Consider mobile view below 768px
+    };
 
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setIsVisible(true); // Force visibility on mobile (no animation)
+      return;
+    }
+
+    let timeout: NodeJS.Timeout;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Add a slight delay to prevent the animation from triggering too frequently
             timeout = setTimeout(() => {
               setIsVisible(true);
-            }, 150); // Adjust this delay as needed
+            }, 150);
           } else {
-            setIsVisible(false); // Reset animation when out of view
+            setIsVisible(false);
           }
         });
       },
       {
-        threshold: 0.1, // Trigger when 10% of the element is visible
+        threshold: 0.1,
       }
     );
 
     const currentRef = ref.current;
-
     if (currentRef) {
       observer.observe(currentRef);
     }
 
     return () => {
-      if (currentRef) {
-        observer.disconnect();
-      }
-      if (timeout) {
-        clearTimeout(timeout); // Clean up timeout
-      }
+      if (currentRef) observer.disconnect();
+      if (timeout) clearTimeout(timeout);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
-    <div ref={ref} className={`${isVisible ? "md:slide-in" : ""}`}>
+    <div
+      ref={ref}
+      className={`${isVisible ? (isMobile ? "" : "slide-in") : ""}`}
+    >
       {children}
     </div>
   );

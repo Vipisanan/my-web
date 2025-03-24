@@ -10,16 +10,21 @@ interface NavBarOptionType {
   path: string;
 }
 const navBarList: NavBarOptionType[] = [
-  { label: "Profile", path: "#profile" },
-  { label: "Education", path: "#education" },
-  { label: "Skills", path: "#skills" },
-  { label: "Reach out", path: "#reach-out" },
+  { label: "Profile", path: "profile" },
+  { label: "Education", path: "education" },
+  { label: "Skills", path: "skills" },
+  { label: "Reach out", path: "reach-out" },
 ];
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const theme = useTheme();
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    window.history.pushState(null, "", `#${id}`);
+  };
 
   return (
     <nav
@@ -35,12 +40,14 @@ export default function NavBar() {
       <div className="w-full flex items-center justify-between">
         {/* Left side of the navbar - Vipisanan (Center vertically) */}
         <div className="navbar-start flex items-center w-full justify-start">
-          <a
-            className="link text-base-content link-neutral text-xl font-semibold no-underline flex items-center glowing-text slide-in"
-            href="#"
+          <p
+            onClick={() => scrollToSection("home")}
+            className="link text-base-content 
+            link-neutral text-xl font-semibold no-underline flex items-center
+            glowing-text slide-in cursor-pointer"
           >
             Vipisanan
-          </a>
+          </p>
         </div>
 
         {/* Right side - Home, About, Services */}
@@ -49,9 +56,12 @@ export default function NavBar() {
             {navBarList.map((da: NavBarOptionType, i) => (
               <React.Fragment key={i}>
                 <li className="text-lg">
-                  <a href={da.path} className="whitespace-nowrap">
+                  <p
+                    onClick={() => scrollToSection(da.path)}
+                    className="cursor-pointer whitespace-nowrap"
+                  >
                     {da.label}
-                  </a>
+                  </p>
                 </li>
                 {i !== navBarList.length - 1 && (
                   <span className="text-lg text-gray-400 transition-all duration-300 hover:text-blue-500">
@@ -94,7 +104,12 @@ export default function NavBar() {
         <ul className="flex flex-col gap-4 text-lg">
           {navBarList.map((da: NavBarOptionType, i) => (
             <li key={i}>
-              <a href={da.path}>{da.label}</a>
+              <p
+                onClick={() => scrollToSection(da.path)}
+                className="cursor-pointer"
+              >
+                {da.label}
+              </p>
             </li>
           ))}
         </ul>

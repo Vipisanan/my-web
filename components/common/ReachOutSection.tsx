@@ -59,7 +59,9 @@ export default function ReachOutSection() {
       setResponseMessage("Failed to send email. Please try again.");
       setResponseMessageType("error");
     }
-
+    setTimeout(() => {
+      setResponseMessage("");
+    }, 5000);
     setLoading(false);
   };
 

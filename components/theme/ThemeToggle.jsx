@@ -32,7 +32,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button className="px-5" onClick={toggleTheme}>
+    <button className="cursor-pointer px-5" onClick={toggleTheme}>
       {theme === "light" ? (
         <SunIcon className="h-6 w-6 text-yellow-500" />
       ) : (

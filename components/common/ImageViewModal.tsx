@@ -21,7 +21,7 @@ const ImageViewModal = ({
           sm:p-4 
           p-2
           max-w-5xl 
-          sm:w-[60%]
+          sm:w-[50%]
           w-80`}
         >
           {/* Close Button */}

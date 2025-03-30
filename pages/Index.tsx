@@ -4,6 +4,7 @@ import LandingPage from "./LandingPage";
 import "../styles/animation.css";
 import DownloadResumeButton from "@/components/common/DownloadResumeButton";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function App() {
   return (
@@ -34,7 +35,7 @@ export default function App() {
         <div className="absolute w-56 h-56 bg-purple-600 rounded-full opacity-20 bottom-0 right-0 animate-float"></div>
       </div>
       <DownloadResumeButton />
-
+      <SpeedInsights />
       <LandingPage />
     </>
   );

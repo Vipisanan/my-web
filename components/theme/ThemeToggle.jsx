@@ -3,40 +3,30 @@ import { useEffect, useState } from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
-  // When the component mounts, check for the saved theme in localStorage
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      setTheme("light"); // Default to light theme if none is saved
-    }
+    setTheme(localStorage.getItem("theme") || "dark");
   }, []);
 
-  // Update the class when the theme changes
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark"); // Add dark mode class to <html>
-      localStorage.setItem("theme", "dark"); // Save theme to localStorage
-    } else {
-      document.documentElement.classList.remove("dark"); // Remove dark mode class
-      localStorage.setItem("theme", "light"); // Save theme to localStorage
-    }
+    const root = document.documentElement;
+    root.classList.toggle("dark", theme === "dark");
+    root.classList.toggle("light", theme === "light");
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Toggle theme
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
   return (
-    <button className="cursor-pointer px-5" onClick={toggleTheme}>
-      {theme === "light" ? (
-        <SunIcon className="h-6 w-6 text-yellow-500" />
+    <button
+      type="button"
+      aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="grid h-9 w-9 cursor-pointer place-items-center rounded-lg border border-line bg-surface text-muted hover:border-faint hover:text-ink"
+    >
+      {theme === "dark" ? (
+        <MoonIcon className="h-4 w-4" />
       ) : (
-        <MoonIcon className="h-6 w-6 text-blue-500" />
+        <SunIcon className="h-4 w-4" />
       )}
     </button>
   );

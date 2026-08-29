@@ -1,20 +1,16 @@
 import React from "react";
+import { PROFILE } from "@/data/profile";
 
 export default function Footer() {
   return (
-    <>
-      <footer
-        className="py-3
-        w-full
-      text-center 
-      text-gray-600 
-      dark:text-gray-300
-      shadow-lg 
-      shadow-gray-400 
-      dark:shadow-gray-600"
-      >
-        © 2025 My Website. All rights reserved.
-      </footer>
-    </>
+    <footer className="mx-auto flex w-full max-w-[1160px] flex-wrap items-center gap-5 px-7 pb-12 pt-14 font-mono text-[11.5px] text-faint">
+      <span>&copy; {new Date().getFullYear()} {PROFILE.name}</span>
+      <span className="ml-auto">
+        {PROFILE.location} · {PROFILE.timezone}
+      </span>
+      <a href="#home" className="text-faint hover:text-accent">
+        back to top ↑
+      </a>
+    </footer>
   );
 }

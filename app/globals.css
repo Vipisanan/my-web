@@ -1,39 +1,94 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Tailwind v4 no longer reads tailwind.config.ts, so darkMode:"class" was
+   being ignored. This restores class-based dark mode for every dark: utility. */
+@custom-variant dark (&:where(.dark, .dark *));
 
+/* ---- Design tokens -------------------------------------------------- */
+:root,
 .light {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #f7f8f6;
+  --surface: #ffffff;
+  --raised: #eef0ec;
+  --line: #e0e3de;
+  --ink: #151815;
+  --muted: #5a615a;
+  --faint: #8b928b;
+  --accent: #0f9b6c;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgb(15 155 108 / 0.1);
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --canvas: #0c0d0c;
+  --surface: #131513;
+  --raised: #191c19;
+  --line: #242824;
+  --ink: #eef0ee;
+  --muted: #a3a9a3;
+  --faint: #6d746d;
+  --accent: #4fd6a8;
+  --accent-contrast: #0c0d0c;
+  --accent-soft: rgb(79 214 168 / 0.12);
 }
-
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-sans: var(--font-schibsted-grotesk), Helvetica, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* These MUST stay inside @layer base. Unlayered CSS beats Tailwind's
+   @layer utilities, so a bare `a { color: ... }` rule would override every
+   text-* utility on every link (invisible button labels). */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* offset for the sticky navbar when jumping to #anchors */
+    scroll-padding-top: 5rem;
   }
-} */
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    text-wrap: pretty;
+  }
 
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--ink);
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-contrast);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

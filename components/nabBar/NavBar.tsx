@@ -1,119 +1,79 @@
 "use client";
-import { useState, useEffect } from "react";
-import ThemeToggle from "@/components/theme/ThemeToggle";
+import React, { useState } from "react";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
-import { useTheme } from "@/hooks/useTheme";
-import React from "react";
-
-interface NavBarOptionType {
-  label: string;
-  path: string;
-}
-const navBarList: NavBarOptionType[] = [
-  { label: "Profile", path: "profile" },
-  { label: "Education", path: "education" },
-  { label: "Skills", path: "skills" },
-  { label: "Reach out", path: "reach-out" },
-];
+import ThemeToggle from "@/components/theme/ThemeToggle";
+import DownloadResumeButton from "@/components/common/DownloadResumeButton";
+import { NAV_ITEMS, NavBarOptionType } from "@/data/profile";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const theme = useTheme();
-
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    window.history.pushState(null, "", `#${id}`);
-  };
+  const closeAndJump = () => setIsOpen(false);
 
   return (
-    <nav
-      className={`navbar mx-auto w-full max-w-[1800px] 
-        px-4 py-3 
-        items-center 
-        shadow-lg shadow-gray-400 
-        dark:shadow-gray-600
-        fixed left-0 right-0 top-0 ${
-          theme == "light" ? "bg-white" : "bg-black"
-        }`}
-    >
-      <div className="w-full flex items-center justify-between">
-        {/* Left side of the navbar - Vipisanan (Center vertically) */}
-        <div className="navbar-start flex items-center w-full justify-start">
-          <p
-            onClick={() => scrollToSection("home")}
-            className="link text-base-content 
-            link-neutral text-xl font-semibold no-underline flex items-center
-            glowing-text slide-in cursor-pointer"
-          >
-            Vipisanan
-          </p>
-        </div>
+    <header className="sticky top-0 z-50 w-full border-b border-line bg-canvas/90 backdrop-blur-md">
+      <nav
+        aria-label="Primary"
+        className="mx-auto flex h-16 w-full max-w-[1160px] items-center gap-7 px-7"
+      >
+        <a
+          href="#home"
+          className="font-mono text-[13px] font-semibold tracking-tight !text-ink"
+        >
+          vipisanan<span className="text-accent">.dev</span>
+        </a>
 
-        {/* Right side - Home, About, Services */}
-        <div className="hidden md:flex md:items-center md:gap-2 justify-center flex-grow">
-          <ul className="flex gap-4">
-            {navBarList.map((da: NavBarOptionType, i) => (
-              <React.Fragment key={i}>
-                <li className="text-lg">
-                  <p
-                    onClick={() => scrollToSection(da.path)}
-                    className="cursor-pointer whitespace-nowrap"
-                  >
-                    {da.label}
-                  </p>
-                </li>
-                {i !== navBarList.length - 1 && (
-                  <span className="text-lg text-gray-400 transition-all duration-300 hover:text-blue-500">
-                    |
-                  </span>
-                )}
-              </React.Fragment>
-            ))}
-          </ul>
-        </div>
-        {/* Place Theme Toggle button on the right side, always visible */}
-        <div className="flex items-center gap-2">
+        <ul className="ml-auto hidden gap-6 md:flex">
+          {NAV_ITEMS.map((item: NavBarOptionType) => (
+            <li key={item.path}>
+              <a
+                href={`#${item.path}`}
+                className="font-mono text-[12.5px] text-muted hover:text-ink"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="ml-auto flex items-center gap-2.5 md:ml-0">
           <ThemeToggle />
-        </div>
-
-        {/* Mobile (md and below) menu icon */}
-        <div className="md:hidden">
+          <DownloadResumeButton />
           <button
             type="button"
-            className="collapse-toggle btn btn-outline btn-secondary btn-sm btn-square"
             aria-controls="navbar-collapse"
+            aria-expanded={isOpen}
             aria-label="Toggle navigation"
+            className="grid h-9 w-9 place-items-center rounded-lg border border-line text-muted hover:text-ink md:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
-              <XMarkIcon className="h-6 w-6 text-gray-800" />
+              <XMarkIcon className="h-5 w-5" />
             ) : (
-              <Bars3Icon className="h-6 w-6 text-gray-800" />
+              <Bars3Icon className="h-5 w-5" />
             )}
           </button>
         </div>
-      </div>
+      </nav>
 
-      {/* For smaller screens (below md), list will be displayed below the navbar with background */}
       <div
-        className={`${
-          isOpen ? "block" : "hidden"
-        } md:hidden w-full mt-4  p-4 rounded-lg transition-all duration-300 ease-in-out`}
+        id="navbar-collapse"
+        className={`${isOpen ? "block" : "hidden"} border-t border-line px-7 py-4 md:hidden`}
       >
-        <ul className="flex flex-col gap-4 text-lg">
-          {navBarList.map((da: NavBarOptionType, i) => (
-            <li key={i}>
-              <p
-                onClick={() => scrollToSection(da.path)}
-                className="cursor-pointer"
+        <ul className="flex flex-col gap-4">
+          {NAV_ITEMS.map((item: NavBarOptionType) => (
+            <li key={item.path}>
+              <a
+                href={`#${item.path}`}
+                onClick={closeAndJump}
+                className="font-mono text-sm text-muted hover:text-ink"
               >
-                {da.label}
-              </p>
+                {item.label}
+              </a>
             </li>
           ))}
         </ul>
       </div>
-    </nav>
+    </header>
   );
 }

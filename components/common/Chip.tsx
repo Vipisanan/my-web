@@ -1,25 +1,11 @@
-"use client";
-
-import { useTheme } from "@/hooks/useTheme";
-import React, { useState } from "react";
+import React from "react";
 
 const Chip = ({ text }: { text: string }) => {
-  const theme = useTheme();
-
   return (
-    <>
-      <p
-        className={`
-            ${
-              theme === "light"
-                ? "bg-gray-300 text-gray-800"
-                : "bg-gray-800 text-gray-400"
-            }
-        px-3 py-1  font-semibold rounded-lg text-sm`}
-      >
-        {text}
-      </p>
-    </>
+    <span className="rounded-md border border-line px-2.5 py-1 font-mono text-[10.5px] text-muted">
+      {text}
+    </span>
   );
 };
+
 export default Chip;

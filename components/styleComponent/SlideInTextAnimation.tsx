@@ -1,66 +1,49 @@
 "use client";
 import { useState, useEffect, useRef, ReactNode } from "react";
 
-interface RootComponentProps {
+interface SlideInTextProps {
   children: ReactNode;
+  /** "left" slides in from the left (default), "up" rises into place. */
+  direction?: "left" | "up";
+  /** Stagger index — multiplied by 80ms when inside a .reveal-stagger group. */
+  index?: number;
 }
 
-export default function SlideInText({ children }: RootComponentProps) {
+export default function SlideInText({
+  children,
+  direction = "left",
+  index = 0,
+}: SlideInTextProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Detect window size and update state
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Consider mobile view below 768px
-    };
+    const node = ref.current;
+    if (!node) return;
 
-    handleResize(); // Set initial state
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (isMobile) {
-      setIsVisible(true); // Force visibility on mobile (no animation)
-      return;
-    }
-
-    let timeout: NodeJS.Timeout;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            timeout = setTimeout(() => {
-              setIsVisible(true);
-            }, 150);
-          } else {
-            setIsVisible(false);
+            setIsVisible(true);
+            // Reveal once — the old version replayed on every scroll pass,
+            // which made the page flicker while scrolling back up.
+            observer.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.1,
-      }
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
     );
 
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) observer.disconnect();
-      if (timeout) clearTimeout(timeout);
-    };
-  }, [isMobile]);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div
       ref={ref}
-      className={`${isVisible ? (isMobile ? "" : "slide-in") : ""}`}
+      style={{ "--reveal-index": index } as React.CSSProperties}
+      className={`reveal reveal-${direction} ${isVisible ? "is-visible" : ""}`}
     >
       {children}
     </div>

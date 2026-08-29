@@ -1,46 +1,52 @@
-import { useTheme } from "@/hooks/useTheme";
+"use client";
+import { useEffect } from "react";
 
 const ImageViewModal = ({
   src,
   alt,
   handleClose,
-  cssClassName = "rounded-lg", // 80% width by default
+  cssClassName = "rounded-lg",
 }: {
   src: string;
   alt?: string;
   handleClose: () => void;
   cssClassName?: string;
 }) => {
-  const theme = useTheme();
-  return (
-    <>
-      <div className="fixed inset-0 flex items-center justify-center bg-opacity-60 backdrop-blur-sm z-50">
-        <div
-          className={` ${theme === "light" ? "bg-gray-600" : "bg-white"}
-          relative rounded-lg shadow-xl
-          sm:p-4 
-          p-2
-          max-w-5xl 
-          sm:w-[50%]
-          w-80`}
-        >
-          {/* Close Button */}
-          <button
-            className="absolute top-2 right-2 text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-full px-3 py-1"
-            onClick={handleClose}
-          >
-            ✕
-          </button>
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [handleClose]);
 
-          {/* Full Image */}
-          <img
-            src={src}
-            alt={alt || "Vipisanan"}
-            className={`w-full h-full object-cover ${cssClassName}`}
-          />
-        </div>
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={alt || "Certificate"}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+      onClick={handleClose}
+    >
+      <div
+        className="relative w-full max-w-4xl rounded-xl border border-line bg-surface p-3 shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          aria-label="Close"
+          className="absolute -top-3 -right-3 grid h-8 w-8 place-items-center rounded-full border border-line bg-surface text-muted hover:text-ink"
+          onClick={handleClose}
+        >
+          &times;
+        </button>
+        <img
+          src={src}
+          alt={alt || "Certificate"}
+          className={`h-auto w-full object-contain ${cssClassName}`}
+        />
       </div>
-    </>
+    </div>
   );
 };
 

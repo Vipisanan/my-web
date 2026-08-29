@@ -1,20 +1,17 @@
 import React from "react";
-import { FaDownload } from "react-icons/fa"; // Importing the FaDownload icon from react-icons
+import { FaDownload } from "react-icons/fa";
+import { RESUME_URL } from "@/data/profile";
 
 const DownloadResumeButton = () => {
-  const resumeLink =
-    "https://drive.google.com/file/d/1F_usjW6ygboqxpuK7UXP-CmwVqLlTyYt/view?usp=sharing"; // Replace this with your Google Drive link
-
   return (
     <a
-      href={resumeLink}
+      href={RESUME_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="z-50 fixed top-24 right-3 md:right-18 bg-purple-600 text-white p-3 
-      rounded-full shadow-lg hover:bg-purple-700 transition duration-300 
-      flex items-center justify-center"
+      className="flex items-center gap-2 rounded-lg bg-accent px-3.5 py-2 font-mono text-xs font-semibold !text-accent-contrast hover:opacity-85"
     >
-      <FaDownload className="w-6 h-6" />
+      CV
+      <FaDownload className="h-3 w-3" />
     </a>
   );
 };

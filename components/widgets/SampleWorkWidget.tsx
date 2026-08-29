@@ -1,62 +1,45 @@
 import React from "react";
-import ImageView from "../common/ImageView";
-import { useTheme } from "@/hooks/useTheme";
+import Chip from "@/components/common/Chip";
+import { SampleWorkDataType } from "@/data/profile";
 
-export interface SampleWorkDataType {
-  name: string;
-  description: string;
-  year: string;
-  imageUrl: string;
-  url: string;
-}
 interface PropsType {
   data: SampleWorkDataType;
 }
 
 const SampleWorkWidget: React.FC<PropsType> = ({ data }) => {
-  const theme = useTheme();
   return (
-    <>
-      <div
-        className={`${theme === "light" ? "bg-gray-50" : "bg-gray-900"}
-        flex flex-col h-full
-        p-6  shadow-md rounded-lg`}
-      >
-        <div className="flex-1">
-          <ImageView
-            src={data.imageUrl}
-            alt={data.name}
-            cssClassName="w-full h-30 object-cover rounded-md mb-4"
-          />
-          <h3 className="text-xl font-semibold mb-2">{data.name}</h3>
-          <p
-            className={`${
-              theme === "light" ? "  text-gray-700 " : "bg-white-700"
-            } text-sm mb-2`}
-          >
-            {data.description}
-          </p>
-          <span
-            className={`${
-              theme === "light" ? "  text-gray-500 " : "text-gray-500"
-            } text-sm block mb-2`}
-          >
-            {data.year}
-          </span>
-        </div>
-        <div className="mt-auto">
-          <a
-            href={data.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 font-semibold hover:underline flex items-center gap-2"
-          >
-            <span>🔗</span>
-            View Project
-          </a>
-        </div>
+    <a
+      href={data.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface !text-ink transition-colors hover:border-faint"
+    >
+      <div className="aspect-video overflow-hidden border-b border-line bg-raised">
+        <img
+          src={data.imageUrl}
+          alt={`${data.name} product screenshot`}
+          width={640}
+          height={360}
+          className="block h-full w-full object-cover"
+        />
       </div>
-    </>
+      <div className="flex flex-1 flex-col gap-2.5 px-6 pb-6 pt-5.5">
+        <div className="flex items-baseline gap-3">
+          <h3 className="text-xl font-semibold tracking-tight">{data.name}</h3>
+          <span className="ml-auto font-mono text-[11px] text-faint">{data.year}</span>
+        </div>
+        <p className="text-[14.5px] leading-relaxed text-muted">{data.description}</p>
+        <ul className="mt-auto flex flex-wrap items-center gap-1.5 pt-3.5">
+          {data.tags.map((tag, i) => (
+            <li key={i}>
+              <Chip text={tag} />
+            </li>
+          ))}
+          <li className="ml-auto font-mono text-[11.5px] text-accent">visit ↗</li>
+        </ul>
+      </div>
+    </a>
   );
 };
+
 export default SampleWorkWidget;
